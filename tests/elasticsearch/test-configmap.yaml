@@ -1,0 +1,17 @@
+---
+# Source: graylog/charts/elasticsearch/templates/tests/test-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: graylog-elasticsearch-test
+    labels:
+    app: graylog-elasticsearch
+    chart: "elasticsearch-1.32.2"
+    heritage: "Helm"
+    release: "graylog"
+data:
+    run.sh: |-
+    @test "Test Access and Health" {
+        curl -D - http://graylog-elasticsearch-client:9200
+        curl -D - http://graylog-elasticsearch-client:9200/_cluster/health?wait_for_status=green
+    }

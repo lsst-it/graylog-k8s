@@ -115,6 +115,8 @@ spec:
           subPath: entrypoint.sh
         - mountPath: /k8s
           name: kubectl
+        - mountPath: /usr/share/GeoIP
+          name: geoipdir
       dnsPolicy: ClusterFirst
       initContainers:
       - command:
@@ -166,6 +168,10 @@ spec:
         name: entrypoint
       - emptyDir: {}
         name: kubectl
+      - hostPath:
+          path: /var/tmp/
+          type: Directory
+        name: geoipdir
   updateStrategy:
     type: RollingUpdate
   volumeClaimTemplates:

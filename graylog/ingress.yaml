@@ -17,6 +17,10 @@ metadata:
   name: graylog-web
   namespace: graylog
 spec:
+  tls:
+  - hosts:
+    - it-graylog.ls.lsst.org
+    secretName: graylog-tls
   rules:
   - host: it-graylog.ls.lsst.org
     http:
@@ -24,7 +28,4 @@ spec:
       - backend:
           serviceName: graylog-web
           servicePort: graylog
-  tls:
-  - hosts:
-    - it-graylog.ls.lsst.org
-    secretName: graylog-tls
+  

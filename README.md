@@ -14,6 +14,9 @@ For further instructions or references, check https://ittn-012.lsst.io
 Deployment
 ----------
 
+Depending on the site and instance, you must browse into the folder first.
+i.e Base IT Graylog -> ls/it-graylog
+
 First create the namespace 'graylog', and then run deploy.sh
 
 ```bash

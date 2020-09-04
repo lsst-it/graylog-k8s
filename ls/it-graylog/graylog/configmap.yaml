@@ -39,6 +39,11 @@ data:
     fi
     fi
     # Download plugins
+    echo "Downloading Graylog Plugins..."
+    echo "Downloading https://github.com/omise/graylog-plugin-slack-notification/releases/download/v3.1.0/graylog-plugin-slack-notification-3.1.0.jar ..."
+    curl -s --location --retry 3 -o ${GRAYLOG_HOME}/plugin/graylog-plugin-slack-notification-3.1.0.jar "https://github.com/omise/graylog-plugin-slack-notification/releases/download/v3.1.0/graylog-plugin-slack-notification-3.1.0.jar"
+    echo "Downloading https://github.com/graylog-labs/graylog-plugin-pagerduty/releases/download/2.0.0/graylog-plugin-pagerduty-2.0.0.jar ..."
+    curl -s --location --retry 3 -o ${GRAYLOG_HOME}/plugin/graylog-plugin-pagerduty-2.0.0.jar "https://github.com/graylog-labs/graylog-plugin-pagerduty/releases/download/2.0.0/graylog-plugin-pagerduty-2.0.0.jar"
     # Start Graylog
     echo "Starting graylog"
     # Original docker-entrypoint.sh in Graylog Docker will error while executing since you can't chown readonly files in `config`
